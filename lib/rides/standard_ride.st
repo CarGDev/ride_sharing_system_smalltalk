@@ -21,8 +21,8 @@ Rides subclass: StandardRide [
     ^ 'Standard Ride ', rideId,
       ' from ', pickupLocation,
       ' to ', dropoffLocation,
-      ' - Miles: ', distance printString,
-      ' - Minutes: ', durationMinutes printString,
+      ' - Miles: ', (self numberString: distance),
+      ' - Minutes: ', (self numberString: durationMinutes),
       ' - Status: ', status
   ]
 

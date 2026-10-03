@@ -42,6 +42,10 @@ Object subclass: Rides [
       ^ status
     ]
 
+    numberString: aNumber [
+      ^ ((aNumber asScaledDecimal: 2) printString) copyUpTo: $s
+    ]
+
     setStatus: newStatus [
       status := newStatus.
       ^ self

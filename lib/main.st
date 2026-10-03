@@ -120,40 +120,70 @@ ride8 := PremiumRide new initWithId: 'R008' pickup: 'Hotel' dropoff: 'Restaurant
 ride9 := StandardRide new initWithId: 'R009' pickup: 'Gym' dropoff: 'Home' distance: 7.1 duration: 16.
 ride10 := PremiumRide new initWithId: 'R010' pickup: 'Office' dropoff: 'Stadium' distance: 9.4 duration: 20.
 
-rides := OrderedCollection with: ride1 with: ride2 with: ride3 with: ride4 with: ride5
-  with: ride6 with: ride7 with: ride8 with: ride9 with: ride10.
+rides := OrderedCollection new.
+rides
+  add: ride1;
+  add: ride2;
+  add: ride3;
+  add: ride4;
+  add: ride5;
+  add: ride6;
+  add: ride7;
+  add: ride8;
+  add: ride9;
+  add: ride10.
 
-requestRiders := OrderedCollection
-  with: standardRider1
-  with: premiumRider1
-  with: standardRider2
-  with: premiumRider2
-  with: premiumRider1
-  with: premiumRider2
-  with: standardRider3
-  with: premiumRider1
-  with: standardRider1
-  with: premiumRider2.
+requestRiders := OrderedCollection new.
+requestRiders
+  add: standardRider1;
+  add: premiumRider1;
+  add: standardRider2;
+  add: premiumRider2;
+  add: premiumRider1;
+  add: premiumRider2;
+  add: standardRider3;
+  add: premiumRider1;
+  add: standardRider1;
+  add: premiumRider2.
 
-requestRiderLabels := OrderedCollection
-  with: 'Bertha Byrd'
-  with: 'Christel Chipchase'
-  with: 'Blakeley Kalinsky'
-  with: 'Gillan Auger'
-  with: 'Christel Chipchase'
-  with: 'Gillan Auger'
-  with: 'Reynolds Stubbin'
-  with: 'Christel Chipchase'
-  with: 'Bertha Byrd'
-  with: 'Gillan Auger'.
+requestRiderLabels := OrderedCollection new.
+requestRiderLabels
+  add: 'Bertha Byrd';
+  add: 'Christel Chipchase';
+  add: 'Blakeley Kalinsky';
+  add: 'Gillan Auger';
+  add: 'Christel Chipchase';
+  add: 'Gillan Auger';
+  add: 'Reynolds Stubbin';
+  add: 'Christel Chipchase';
+  add: 'Bertha Byrd';
+  add: 'Gillan Auger'.
 
-riderTypes := OrderedCollection
-  with: 'Standard' with: 'Premium' with: 'Standard' with: 'Premium' with: 'Premium'
-  with: 'Premium' with: 'Standard' with: 'Premium' with: 'Standard' with: 'Premium'.
+riderTypes := OrderedCollection new.
+riderTypes
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Premium';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium'.
 
-rideTypes := OrderedCollection
-  with: 'Standard' with: 'Premium' with: 'Standard' with: 'Premium' with: 'Premium'
-  with: 'Premium' with: 'Standard' with: 'Premium' with: 'Standard' with: 'Premium'.
+rideTypes := OrderedCollection new.
+rideTypes
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Premium';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium';
+  add: 'Standard';
+  add: 'Premium'.
 
 activeDrivers := OrderedCollection new.
 activeVehicles := OrderedCollection new.
@@ -163,16 +193,20 @@ activeRideTypes := OrderedCollection new.
 Transcript show: 'Ride Sharing System Simulation'; cr.
 Transcript show: 'Drivers: 3 | Riders: 5 (3 standard, 2 premium) | Vehicles: 3 (1 standard, 2 premium) | Ride requests: 10'; cr; cr.
 
-rides withIndexDo: [ :ride :i |
-  | rider rideType driver vehicle rideToComplete |
+1 to: rides size do: [ :i |
+  | ride rider rideType driver vehicle rideToComplete |
 
+  ride := rides at: i.
   rider := requestRiders at: i.
   rideType := rideTypes at: i.
 
   i >= 5 ifTrue: [
     rideToComplete := nil.
 
-    activeRides withIndexDo: [ :activeRide :j |
+    1 to: activeRides size do: [ :j |
+      | activeRide |
+
+      activeRide := activeRides at: j.
       ((activeRide notNil) and: [ (activeRideTypes at: j) = rideType ])
         ifTrue: [
           rideToComplete isNil ifTrue: [ rideToComplete := j ]
@@ -180,7 +214,10 @@ rides withIndexDo: [ :ride :i |
     ].
 
     i = 5 ifTrue: [
-      activeRides withIndexDo: [ :activeRide :j |
+      1 to: activeRides size do: [ :j |
+        | activeRide |
+
+        activeRide := activeRides at: j.
         ((activeRide notNil) and: [ activeRide getRideID = 'R002' ])
           ifTrue: [ rideToComplete := j ]
       ]
@@ -231,7 +268,7 @@ rides withIndexDo: [ :ride :i |
       Transcript show: 'Driver: ', driver getFullName; cr.
       Transcript show: 'Vehicle: ', vehicle getVehicleInfo; cr.
       Transcript show: ride rideDetails; cr.
-      Transcript show: 'Fare: $', ride getFare printString; cr.
+      Transcript show: 'Fare: $', (ride numberString: ride getFare); cr.
     ]
     ifFalse: [
       ride setStatus: 'unassigned'.
