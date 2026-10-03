@@ -249,9 +249,83 @@ The current `main.cpp` demo runs a scripted ride-sharing scenario for assignment
 ## Results
 
 ```bash
+❯ make
+/opt/homebrew/bin/gst  lib/person/persona.st lib/person/driver.st lib/person/rider.st lib/vehicle.st lib/rides/rides.st lib/rides/standard_ride.st lib/rides/premium_ride.st lib/sharing_system.st lib/main.st
+"Global garbage collection... done"
+Ride Sharing System Simulation
+Drivers: 3 | Riders: 5 (3 standard, 2 premium) | Vehicles: 3 (1 standard, 2 premium) | Ride requests: 10
 
+Request 1 by Bertha Byrd for a Standard ride: R001
+Assigned
+Driver: Hall Coode
+Vehicle: V001 - Chevrolet Impala (2020) White - STD-001
+Standard Ride R001 from Campus to Downtown - Miles: 5.00 - Minutes: 12 - Status: assigned
+Fare: $25.50
 
+	Request 2 by Christel Chipchase for a Premium ride: R002
+	Assigned
+	Driver: Izabel Balding
+	Vehicle: V002 - Aston Martin DBS (2023) Black - PRE-001
+	Premium Ride R002 from Airport to Hotel - Miles: 10.00 - Minutes: 25 - Status: assigned
+	Fare: $35.00
 
+Request 3 by Blakeley Kalinsky for a Standard ride: R003
+No available driver or Standard vehicle for R003
+
+Request 4 by Gillan Auger for a Premium ride: R004
+Assigned
+Driver: Elden McQuillen
+Vehicle: V003 - Infiniti QX56 (2022) Blue - PRE-002
+Premium Ride R004 from Station to Museum - Miles: 8.00 - Minutes: 18 - Status: assigned
+Fare: $26.00
+
+	Completed R002; driver and Premium vehicle are available again.
+	Request 5 by Christel Chipchase for a Premium ride: R005
+	Assigned
+	Driver: Izabel Balding
+	Vehicle: V002 - Aston Martin DBS (2023) Black - PRE-001
+	Premium Ride R005 from Hospital to Campus - Miles: 6.20 - Minutes: 15 - Status: assigned
+	Fare: $21.20
+
+Completed R004; driver and Premium vehicle are available again.
+Request 6 by Gillan Auger for a Premium ride: R006
+Assigned
+Driver: Elden McQuillen
+Vehicle: V003 - Infiniti QX56 (2022) Blue - PRE-002
+Premium Ride R006 from Downtown to Airport - Miles: 12.00 - Minutes: 28 - Status: assigned
+Fare: $40.00
+
+	Completed R001; driver and Standard vehicle are available again.
+	Request 7 by Reynolds Stubbin for a Standard ride: R007
+	Assigned
+	Driver: Hall Coode
+	Vehicle: V001 - Chevrolet Impala (2020) White - STD-001
+	Standard Ride R007 from Park to Theater - Miles: 4.70 - Minutes: 10 - Status: assigned
+	Fare: $22.04
+
+Completed R005; driver and Premium vehicle are available again.
+Request 8 by Christel Chipchase for a Premium ride: R008
+Assigned
+Driver: Izabel Balding
+Vehicle: V002 - Aston Martin DBS (2023) Black - PRE-001
+Premium Ride R008 from Hotel to Restaurant - Miles: 2.80 - Minutes: 7 - Status: assigned
+Fare: $9.80
+
+	Completed R007; driver and Standard vehicle are available again.
+	Request 9 by Bertha Byrd for a Standard ride: R009
+	Assigned
+	Driver: Hall Coode
+	Vehicle: V001 - Chevrolet Impala (2020) White - STD-001
+	Standard Ride R009 from Gym to Home - Miles: 7.10 - Minutes: 16 - Status: assigned
+	Fare: $34.65
+
+Completed R006; driver and Premium vehicle are available again.
+Request 10 by Gillan Auger for a Premium ride: R010
+Assigned
+Driver: Elden McQuillen
+Vehicle: V003 - Infiniti QX56 (2022) Blue - PRE-002
+Premium Ride R010 from Office to Stadium - Miles: 9.40 - Minutes: 20 - Status: assigned
+Fare: $29.40
 ```
 
 ## Author
