@@ -37,7 +37,7 @@ Object subclass: RideSharingSystem [
 
   findAvailableVehicle [
     ^ vehicles
-      detect: [ vehicle | vehicle isAvailable ]
+      detect: [ :vehicle | vehicle isAvailable ]
       ifNone: [ nil ]
   ]
 
@@ -66,7 +66,9 @@ Object subclass: RideSharingSystem [
   ]
 
   processRides [
-    
+    rides do: [ :ride |
+      ride notNil ifTrue: [ ride calculateFare ]
+    ].
+    ^ self
   ]
 ]
-

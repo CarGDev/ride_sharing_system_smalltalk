@@ -8,7 +8,7 @@ Rides subclass: StandardRide [
     minimumFare := 0.
     bookingFee := 0.
     maxPassengers := 4.
-    vehicleType := "Standard".
+    vehicleType := 'Standard'.
     ^ self
   ]
 
@@ -18,7 +18,12 @@ Rides subclass: StandardRide [
   ]
 
   rideDetails [
-    ^ "Standard Ride " + rideID + " from " + pickupLocation + " to " + dropoffLocation + " - Miles: " + distance + " - Minutes: " + durationMinutes + " - Status: " + status
+    ^ 'Standard Ride ', rideId,
+      ' from ', pickupLocation,
+      ' to ', dropoffLocation,
+      ' - Miles: ', distance printString,
+      ' - Minutes: ', durationMinutes printString,
+      ' - Status: ', status
   ]
 
   getRatePerMile [

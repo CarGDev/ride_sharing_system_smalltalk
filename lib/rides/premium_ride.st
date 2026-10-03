@@ -1,4 +1,4 @@
-Rider subclass: PremiumRider [
+Rides subclass: PremiumRide [
     | ratePerMile baseFare premiumFee serviceFee minimumFare maxPassengers
     vehicleType luxuryVehicle priorityPickup |
 
@@ -10,7 +10,7 @@ Rider subclass: PremiumRider [
         serviceFee := 0.
         minimumFare := 0.
         maxPassengers := 4.
-        vehicleType := "Premium".
+        vehicleType := 'Premium'.
         luxuryVehicle := true.
         priorityPickup := true.
         ^ self
@@ -23,7 +23,12 @@ Rider subclass: PremiumRider [
     ]
 
     rideDetails [
-      ^ "Premium Ride " + rideID + " from " + pickupLocation + " to " + dropoffLocation + " - Miles: " + distance + " - Minutes: " + durationMinutes + " - Status: " + status
+      ^ 'Premium Ride ', rideId,
+        ' from ', pickupLocation,
+        ' to ', dropoffLocation,
+        ' - Miles: ', distance printString,
+        ' - Minutes: ', durationMinutes printString,
+        ' - Status: ', status
     ]
 
     getRatePerMile [
@@ -50,7 +55,7 @@ Rider subclass: PremiumRider [
       ^ vehicleType
     ]
 
-    hasLuxusyVehicle [
+    hasLuxuryVehicle [
       ^ luxuryVehicle
     ]
 

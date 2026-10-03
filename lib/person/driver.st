@@ -5,8 +5,8 @@ Persona subclass: Driver [
         super init.
         rating := 0.0.
         assigned_rides := OrderedCollection new.
-        available := true
-        current_ride_id := -1
+        available := true.
+        current_ride_id := -1.
         ^ self
     ]
 
@@ -66,4 +66,3 @@ Persona subclass: Driver [
         ^ self
     ]
 ]
-

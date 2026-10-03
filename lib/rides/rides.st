@@ -2,13 +2,23 @@ Object subclass: Rides [
     | rideId pickupLocation dropoffLocation distance fare durationMinutes status |
 
     init [
-        rideId := "".
-        pickupLocation := "".
-        dropoffLocation := "".
+        rideId := ''.
+        pickupLocation := ''.
+        dropoffLocation := ''.
         distance := 0.
         fare := 0.
         durationMinutes := 0.
-        status := "free".
+        status := 'free'.
+        ^ self
+    ]
+
+    initWithId: anId pickup: aPickup dropoff: aDropoff distance: aDistance duration: aDuration [
+        self init.
+        rideId := anId.
+        pickupLocation := aPickup.
+        dropoffLocation := aDropoff.
+        distance := aDistance.
+        durationMinutes := aDuration.
         ^ self
     ]
 
@@ -34,5 +44,6 @@ Object subclass: Rides [
 
     setStatus: newStatus [
       status := newStatus.
+      ^ self
     ]
 ]

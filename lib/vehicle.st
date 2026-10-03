@@ -3,14 +3,14 @@ Object subclass: Vehicle [
   driver |
 
   init [
-    vehicleId := "".
-    make := "".
-    model := "".
+    vehicleId := ''.
+    make := ''.
+    model := ''.
     year := 1900.
-    color := "".
-    licensePlate := "".
+    color := ''.
+    licensePlate := ''.
     capacity := 0.
-    vehicleType := "".
+    vehicleType := ''.
     available := true.
     ^ self
   ]
@@ -20,7 +20,11 @@ Object subclass: Vehicle [
   ]
 
   getVehicleInfo [
-    ^ vehicleId " - " + make + " " + model + " (" + year + ") " + color + " - " + licensePlate;
+    ^ vehicleId, ' - ', make, ' ', model, ' (', year printString, ') ', color, ' - ', licensePlate
+  ]
+
+  getVehicleType [
+    ^ vehicleType
   ]
 
   getCapacity [
@@ -29,6 +33,7 @@ Object subclass: Vehicle [
 
   setDriver: newDriver [
     driver := newDriver.
+    ^ self
   ]
 
   getDriver [
@@ -41,5 +46,46 @@ Object subclass: Vehicle [
 
   setAvailable: isTaken [
     available := isTaken.
+    ^ self
+  ]
+
+  setVehicleId: aVehicleId [
+    vehicleId := aVehicleId.
+    ^ self
+  ]
+
+  setMake: aMake [
+    make := aMake.
+    ^ self
+  ]
+
+  setModel: aModel [
+    model := aModel.
+    ^ self
+  ]
+
+  setYear: aYear [
+    year := aYear.
+    ^ self
+  ]
+
+  setColor: aColor [
+    color := aColor.
+    ^ self
+  ]
+
+  setLicensePlate: aLicensePlate [
+    licensePlate := aLicensePlate.
+    ^ self
+  ]
+
+  setCapacity: aCapacity [
+    capacity := aCapacity.
+    ^ self
+  ]
+
+  setVehicleType: aVehicleType [
+    vehicleType := aVehicleType.
+    ^ self
   ]
 ]

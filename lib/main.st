@@ -1,7 +1,7 @@
 FileStream fileIn: 'lib/person/driver.st'.
 FileStream fileIn: 'lib/person/rider.st'.
 FileStream fileIn: 'lib/vehicle.st'.
-FileStream fileIn: 'lib/rides/ride.st'.
+FileStream fileIn: 'lib/rides/rides.st'.
 FileStream fileIn: 'lib/rides/standard_ride.st'.
 FileStream fileIn: 'lib/rides/premium_ride.st'.
 FileStream fileIn: 'lib/sharing_system.st'.
@@ -219,7 +219,7 @@ rides withIndexDo: [ :ride :i |
       vehicle setAvailable: false.
       ride setStatus: 'assigned'.
       ride calculateFare.
-      rider requestRide: i driverInfo: driver getDriverInfo.
+      rider requestRide: i driver: driver getDriverInfo.
       system addRide: ride.
 
       activeDrivers add: driver.
@@ -245,3 +245,5 @@ rides withIndexDo: [ :ride :i |
 
   Transcript cr.
 ].
+
+system processRides.
